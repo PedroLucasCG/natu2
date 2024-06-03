@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <title>Naturaves</title>
+</head>
+<body>
+    <nav><img src="/img/logo-naturaves.webp" alt="logo_naturaves"></nav>
+
+    <main>
+        <aside>
+            <a href="Iniciar_solicitacao_de_servico.html" current="true">Solicitar serviço</a>
+            <a href="encontrar_ordem_de_servico.html" current="false">Gestão de O.S.</a>
+            <a href="administrar_colaboradores.html" current="false">Colaboradores</a>
+            <a href="definir_constantes.html" current="false">Constantes</a>
+        </aside>
+    
+        <section>
+            <h1>Iniciar Solicitação de Serviço</h1>
+            <form action="" method="post">
+
+                <div>
+                    <label for="atividade">Atividade</label>
+                    <textarea name="atividade" id="atividade"></textarea>
+                </div>
+                
+                <div>
+                    <label for="responsavel">Responsavel</label>
+                    <input type="text" name="responsavel" id="responsavel">
+                </div>
+    
+                <div>
+                    <label for="solicitante">Solicitante</label>
+                    <input type="text" name="solicitante" id="solicitante">
+                </div>
+    
+                <div>
+                    <label for="tipo_manutenção">Tipo de manutenção</label>
+                    <input type="text" name="tipo_manutenção" id="tipo_manutenção">
+                </div>
+    
+                <div>
+                    <label for="centro_custo">Centro de custo</label>
+                    <input type="text" name="centro_custo" id="centro_custo">
+                </div>
+    
+                <div>
+                    <label for="local_aplicacao">Local de aplicação</label>
+                    <input type="text" name="local_aplicacao" id="local_aplicacao">
+                </div>
+    
+                <div>
+                    <label for="setor_responsavel">Setor responsável</label>
+                    <input type="text" name="setor_responsavel" id="setor_responsavel">
+                </div>
+    
+                <div>
+                    <label for="inicio_atividade">Início atividade</label>
+                    <input type="text" name="inicio_atividade" id="inicio_atividade">
+                </div>
+    
+                <div>
+                    <label for="fim_atividade">Fim atividade</label>
+                    <input type="text" name="fim_atividade" id="fim_atividade">
+                </div>
+    
+                <input type="submit" name="salvar" value="Salvar">
+            </form>
+        </section>
+    </main>  
+</body>
+</html>

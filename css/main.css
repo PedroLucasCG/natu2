@@ -1,0 +1,146 @@
+:root{
+    --bg-color: #d9d9d9;
+    --bg-color-item: #efefef;
+    --letter-color: #5e5e5e;
+    --green: #27AE45;
+    --font-size-title: 1.5rem;
+}
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "poppins-Bold";
+    src: url("/font/Poppins-Bold.ttf");
+}
+
+@font-face {
+    font-family: "poppins-Medium";
+    src: url("/font/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: "poppins-Regular";
+    src: url("/font/Poppins-Regular.ttf");
+}
+
+html{
+    height: 100%;
+    font-family: "poppins-Regular";
+}
+
+nav{
+    background-color: var(--bg-color);
+    width: 100%;
+    position: relative;
+    top: 0;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+}
+
+nav img{
+    height: 2rem;
+    object-fit: scale-down;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1%;
+    color: var(--letter-color);
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+section{
+    background-color: var(--bg-color);
+    border-radius: .5rem;
+}
+
+section h1{
+    display: inline-block;
+    width: 50%;
+    padding: .2rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-weight: initial;
+    font-size: var(--font-size-title);
+    text-align: center;
+    background-color: var(--bg-color-item);
+}
+
+aside{
+    background-color: var(--bg-color);
+    height: fit-content;
+    border-radius: .5rem;
+    padding: 2rem 0;
+}
+
+aside a{
+    display: block;
+    width: 100%;
+    padding: .2rem 3rem;
+    color: inherit;
+    text-decoration: none;
+    font-size: var(--font-size-title);
+    background-color: var(--bg-color-item);
+}
+
+aside a:not([current="true"]):hover{
+    color: #818181;
+}
+
+aside a[current="true"]{
+    font-family: poppins-Bold;
+}
+
+aside a:not(:last-child){
+    margin-bottom: 1rem;
+}
+
+section form{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 1rem 2rem;
+}
+
+section form div{
+    margin-bottom: 2rem;
+}
+
+section form input, section form textarea{
+    border: none;
+    background-color: var(--bg-color-item);
+    outline: none;
+    color: var(--letter-color);
+    font-size:var(--font-size-title);
+    padding: 1rem;
+}
+
+section form input{
+    width: 20rem;
+    height: 3rem;
+}
+
+section form label{
+    display: block;
+    font-size: var(--font-size-title);
+}
+
+section form > :first-child{
+    width: 100%;
+}
+
+section form :first-child textarea{
+    resize: none;
+    width: inherit;
+    height: 10rem;
+}
