@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/solicitar.css">
     
     <title>Naturaves</title>
 </head>
@@ -68,25 +69,28 @@
                 </div>
 
                 <div class="colaboradores">
+                    <section class="pesquisar-colaboradores">
+                        <div><input type="text" name="colaborador-nome" id="colaborador-nome"></div>
+                        <div>
+                            <ul>
+                                <li><span>Robério Felberg</span> <span>056</span></li>
+                            </ul>
+                        </div>
+                    </section>
                     <span><strong>+</strong> Adicionar colaborador</span>
                     <div>
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
+                        <span>Adenilsom Ferreira<strong onclick="removeItem(this)">+</strong></span>
 
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
+                        <span>Luiz Carlos<strong onclick="removeItem(this)">+</strong></span>
 
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
+                        <span>Adenilsom Ferreira<strong onclick="removeItem(this)">+</strong></span>
 
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
+                        <span>Luiz Carlos<strong onclick="removeItem(this)">+</strong></span>
 
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
+                        <span>Adenilsom Ferreira<strong onclick="removeItem(this)">+</strong></span>
 
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
+                        <span>Luiz Carlos<strong onclick="removeItem(this)">+</strong></span>
 
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
-
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
-
-                        <span>Adenilsom Ferreira<strong>+</strong></span>
                     </div>
                 </div>
     
@@ -94,5 +98,6 @@
             </form>
         </section>
     </main>  
+    <script src="/js/removeItem.js"></script>
 </body>
 </html>

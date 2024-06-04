@@ -3,6 +3,7 @@
     --bg-color-item: #efefef;
     --letter-color: #5e5e5e;
     --green: #27AE45;
+    --red: #FF7171;
     --font-size-title: 1.5rem;
 }
 
@@ -92,7 +93,10 @@ aside a{
     background-color: var(--bg-color-item);
 }
 
-aside a:not([current="true"]):hover{
+aside a:not([current="true"]):hover,
+section form input[type="submit"]:hover,
+.colaboradores > span:hover
+{
     color: #818181;
 }
 
@@ -116,7 +120,8 @@ section form > div{
     margin-bottom: 2rem;
 }
 
-section form input, section form textarea{
+section form input, 
+section form textarea{
     border: none;
     background-color: var(--bg-color-item);
     outline: none;
@@ -149,7 +154,8 @@ section form :first-child textarea{
     width: 100%;
 }
 
-.colaboradores span, .colaboradores > div span{
+.colaboradores span, 
+.colaboradores > div span{
     background-color: var(--bg-color-item);
     display: flex;
     width: fit-content;
@@ -164,7 +170,8 @@ section form :first-child textarea{
     padding: 0 1rem;
 }
 
-.colaboradores > span strong, .colaboradores > div span strong{
+.colaboradores > span strong, 
+.colaboradores > div span strong{
     font-size: 2rem;
     font-weight: lighter;
 }
@@ -176,12 +183,11 @@ section form :first-child textarea{
 .colaboradores > div{
     width: 100%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     border: dashed white .4rem;
     min-height: 16rem;
     margin-top: 1rem;
-    padding: 1.5rem 1.5rem 0;
+    padding: 1.5rem 0 0 1.5rem;
 }
 
 .colaboradores > div span strong{
@@ -190,15 +196,16 @@ section form :first-child textarea{
     cursor: pointer;
 }
 
+.colaboradores > div span strong:hover{
+    color: var(--red);
+}
+
 .colaboradores > div span{
     padding: .1rem .5rem;
-    width: 15%;
     height: fit-content;
-    justify-content: space-between;
     min-width: fit-content;
-    position: relative;
+    margin-right: 1rem;
     border-radius: .5rem;
-    margin-bottom: 1.5rem;
 }
 
 section form input[type="submit"]{
