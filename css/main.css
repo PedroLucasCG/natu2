@@ -55,7 +55,7 @@ main{
     gap: 1%;
     color: var(--letter-color);
     justify-content: space-between;
-    margin-top: 2rem;
+    margin: 2rem 1rem 3rem;
 }
 
 section{
@@ -112,7 +112,7 @@ section form{
     padding: 0 1rem 2rem;
 }
 
-section form div{
+section form > div{
     margin-bottom: 2rem;
 }
 
@@ -143,4 +143,69 @@ section form :first-child textarea{
     resize: none;
     width: inherit;
     height: 10rem;
+}
+
+.colaboradores{
+    width: 100%;
+}
+
+.colaboradores span, .colaboradores > div span{
+    background-color: var(--bg-color-item);
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    font-size: var(--font-size-title);
+    
+}
+
+.colaboradores > span{
+    border-radius: 5rem;
+    cursor: pointer;
+    padding: 0 1rem;
+}
+
+.colaboradores > span strong, .colaboradores > div span strong{
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+.colaboradores > span strong{
+    margin-right: 1rem;
+}
+
+.colaboradores > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: dashed white .4rem;
+    min-height: 16rem;
+    margin-top: 1rem;
+    padding: 1.5rem 1.5rem 0;
+}
+
+.colaboradores > div span strong{
+    transform: rotateZ(45deg);
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.colaboradores > div span{
+    padding: .1rem .5rem;
+    width: 15%;
+    height: fit-content;
+    justify-content: space-between;
+    min-width: fit-content;
+    position: relative;
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+section form input[type="submit"]{
+    background-color: var(--bg-color-item);
+    padding: .5rem 2rem;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 5rem;
+    cursor: pointer;
 }
