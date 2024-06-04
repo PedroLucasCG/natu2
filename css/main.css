@@ -30,6 +30,11 @@
     src: url("/font/Poppins-Regular.ttf");
 }
 
+@font-face {
+    font-family: "poppins-Italic";
+    src: url("/font/Poppins-Italic.ttf");
+}
+
 html{
     height: 100%;
     font-family: "poppins-Regular";
@@ -50,7 +55,7 @@ nav img{
     object-fit: scale-down;
 }
 
-main{
+body > main{
     display: grid;
     grid-template-columns: 1fr 4fr;
     gap: 1%;
@@ -121,7 +126,8 @@ section form > div{
 }
 
 section form input, 
-section form textarea{
+section form textarea,
+.pesquisar-colaboradores input{
     border: none;
     background-color: var(--bg-color-item);
     outline: none;

@@ -1,0 +1,58 @@
+.pesquisar-colaboradores{
+    background-color: rgba(0, 0, 0, 0.356);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.pesquisar-colaboradores main{
+    width: 50%;
+    height: 80%;
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+    flex-direction: column;
+}
+
+.pesquisar-colaboradores input{
+    display: block;
+    width: 80%;
+    margin: 4rem auto .5rem;
+}
+
+.pesquisar-colaboradores input::placeholder{
+    font-family: "poppins-Italic";
+}
+
+.lista{
+    padding: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.lista div,
+.overflow div{
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: var(--letter-color);
+    justify-content: space-between;
+    border-bottom: .1rem solid var(--letter-color);
+}
+
+.lista div :first-child{
+    width: 10rem;
+    border: none;
+}
+
+.overflow{
+    height: 30rem;
+    overflow: auto;
+    scrollbar-width: thin;
+}
