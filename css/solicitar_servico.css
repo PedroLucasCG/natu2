@@ -18,6 +18,7 @@
     background-color: var(--bg-color);
     border-radius: 1rem;
     flex-direction: column;
+    position: relative;
 }
 
 .pesquisar-colaboradores input{
@@ -55,4 +56,38 @@
     height: 30rem;
     overflow: auto;
     scrollbar-width: thin;
+}
+
+.close{
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    cursor: pointer;
+    padding: 1.5rem;
+}
+
+.close div{
+    width: .2rem;
+    aspect-ratio: 1/10;
+    top: .5rem;
+    right: 1.5rem;
+    position: inherit;
+    border-radius: 4rem;
+    background-color: var(--letter-color);
+}
+
+.close div:hover{
+    background-color: var(--red);
+}
+
+.close :first-child{
+    transform: rotateZ(45deg);
+}
+
+.close :last-child{
+    transform: rotateZ(-45deg);
+}
+
+.fechar {
+    display: none;
 }

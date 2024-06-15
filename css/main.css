@@ -98,14 +98,14 @@ aside a{
     background-color: var(--bg-color-item);
 }
 
-aside a:not([current="true"]):hover,
+aside a:not([current]):hover,
 section form input[type="submit"]:hover,
 .colaboradores > span:hover
 {
     color: #818181;
 }
 
-aside a[current="true"]{
+aside a[current]{
     font-family: poppins-Bold;
 }
 

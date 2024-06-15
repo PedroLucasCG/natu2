@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/solicitar_servico.css">
-    
+    <script src="/js/app.js" defer></script>
+
     <title>Naturaves</title>
 </head>
 <body>
     <nav><img src="/img/logo-naturaves.webp" alt="logo_naturaves"></nav>
 
-    <section class="pesquisar-colaboradores">
+    <section class="pesquisar-colaboradores fechar">
         <main>
+            <div class="close" onclick="closeWindow(this)">
+                <div></div>
+                <div></div>
+            </div>
             <div><input type="text" name="colaborador-nome" id="colaborador-nome" placeholder="Pesquisar colaboradores"></div>
             <div class="lista">
                     <div><span>Colaborador</span> <span>Cargo</span> Código</div>
@@ -33,10 +38,10 @@
 
     <main>
         <aside>
-            <a href="Iniciar_solicitacao_de_servico.html" current="true">Solicitar serviço</a>
-            <a href="encontrar_ordem_de_servico.html" current="false">Gestão de O.S.</a>
-            <a href="administrar_colaboradores.html" current="false">Colaboradores</a>
-            <a href="definir_constantes.html" current="false">Constantes</a>
+            <a href="Iniciar_solicitacao_de_servico.html" current>Solicitar serviço</a>
+            <a href="encontrar_ordem_de_servico.html" >Gestão de O.S.</a>
+            <a href="administrar_colaboradores.html">Colaboradores</a>
+            <a href="definir_constantes.html">Constantes</a>
         </aside>
     
         <section>
@@ -89,7 +94,7 @@
                 </div>
 
                 <div class="colaboradores">
-                    <span><strong>+</strong> Adicionar colaborador</span>
+                    <span onclick="openWindow()"><strong>+</strong> Adicionar colaborador</span>
                     <div>
                         <span>Adenilsom Ferreira<strong onclick="removeItem(this)">+</strong></span>
 
@@ -110,6 +115,5 @@
             </form>
         </section>
     </main>  
-    <script src="/js/removeItem.js"></script>
 </body>
 </html>
