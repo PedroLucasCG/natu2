@@ -47,6 +47,12 @@
     border-bottom: .1rem solid var(--letter-color);
 }
 
+.overflow div:hover{
+    background-color: var(--letter-color);
+    color: white;
+    cursor: pointer;
+}
+
 .lista div :first-child{
     width: 10rem;
     border: none;
@@ -90,4 +96,9 @@
 
 .fechar {
     display: none;
+}
+
+.overflow div.selecionado {
+    background-color: var(--green);
+    color: white;
 }
