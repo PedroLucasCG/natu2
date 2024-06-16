@@ -82,10 +82,6 @@
     background-color: var(--letter-color);
 }
 
-.close div:hover{
-    background-color: var(--red);
-}
-
 .close :first-child{
     transform: rotateZ(45deg);
 }

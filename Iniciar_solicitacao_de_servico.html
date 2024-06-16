@@ -10,6 +10,11 @@
     <title>Naturaves</title>
 </head>
 <body>
+    <template>
+        <span>nome-colaborador<strong onclick="removeItem(this)">+</strong></span>
+    </template>
+
+
     <nav><img src="/img/logo-naturaves.webp" alt="logo_naturaves"></nav>
 
     <section class="pesquisar-colaboradores fechar">
@@ -23,13 +28,9 @@
                     <div><span>Colaborador</span> <span>Cargo</span> Código</div>
                     <section class="overflow">
                         <div onclick="toggleColaborador(this)"><span>Robério Felberg</span> <span>Mecânico</span> 056</div>
-                        <div onclick="toggleColaborador(this)"><span>Robério Felberg</span> <span>Mecânico</span> 056</div>
-                        <div onclick="toggleColaborador(this)"><span>Robério Felberg</span> <span>Mecânico</span> 056</div>
-                        <div onclick="toggleColaborador(this)"><span>Robério Felberg</span> <span>Mecânico</span> 056</div>
-                        <div onclick="toggleColaborador(this)"><span>Robério Felberg</span> <span>Mecânico</span> 056</div>
-                        <div onclick="toggleColaborador(this)"><span>Robério Felberg</span> <span>Mecânico</span> 056</div>
-                        <div onclick="toggleColaborador(this)"><span>Robério Felberg</span> <span>Mecânico</span> 056</div>
-                        <div onclick="toggleColaborador(this)"><span>Robério Felberg</span> <span>Mecânico</span> 056</div>
+                        <div onclick="toggleColaborador(this)"><span>Marcelo Rocha</span> <span>Mecânico</span> 056</div>
+                        <div onclick="toggleColaborador(this)"><span>Juscimar Naturivis</span> <span>Mecânico</span> 056</div>
+                        <div onclick="toggleColaborador(this)"><span>Tu tutututut</span> <span>Mecânico</span> 056</div>
                     </section>
                 </ul>
             </div>
@@ -96,10 +97,6 @@
                 <div class="colaboradores">
                     <span onclick="openWindow()"><strong>+</strong> Adicionar colaborador</span>
                     <div>
-                        <template>
-                            <span>nome-colaborador<strong onclick="removeItem(this)">+</strong></span>
-                        </template>
-
                     </div>
                 </div>
     
