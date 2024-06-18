@@ -1,0 +1,51 @@
+section.os-historico{
+    margin: 0 .5rem 1rem;
+    overflow: auto;
+    padding: 0 .5rem;
+    width: 80vw;
+}
+
+section.os-historico div{
+    background-color: white;
+    padding: 1rem;
+    font-size: var(--font-size-title);
+    margin: .5rem 0;
+    display: flex;
+    width: fit-content;
+}
+
+section.os-historico div span{
+    display: flex;
+    width: 30rem;
+    padding: 0 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+section.os-historico div span:not( :last-child){
+    border-right: var(--bg-color) solid 5px;
+}
+
+section.os-historico div :first-child{
+    justify-content: right;
+    width: 20rem;
+    padding-right: 1rem;
+}
+
+section.os-historico div p{
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/*
+section.os-historico div p::after {
+    content: attr(title);  
+    z-index: 6;
+    top: 0; 
+    left: 0;
+    color: red;
+}
+*/

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/encontrar_ordem_de_servico.css">
+    <script src="/js/app.js" defer></script>
+
+    <title>Naturaves</title>
+</head>
+<body>
+    <nav><img src="/img/logo-naturaves.webp" alt="logo_naturaves"></nav>
+
+    <main>
+        <aside>
+            <a href="Iniciar_solicitacao_de_servico.html">Solicitar serviço</a>
+            <a href="encontrar_ordem_de_servico.html" current>Gestão de O.S.</a>
+            <a href="administrar_colaboradores.html">Colaboradores</a>
+            <a href="definir_constantes.html">Constantes</a>
+        </aside>
+    
+        <section>
+            <h1>Encontrar ordem de serviço</h1>
+            <form action="" method="post">
+
+                <div>
+                    <label for="atividade">Atividade</label>
+                    <textarea name="atividade" id="atividade"></textarea>
+                </div>
+                
+                <div>
+                    <label for="responsavel">Responsavel</label>
+                    <input type="text" name="responsavel" id="responsavel">
+                </div>
+    
+                <div>
+                    <label for="solicitante">Solicitante</label>
+                    <input type="text" name="solicitante" id="solicitante">
+                </div>
+    
+                <div>
+                    <label for="tipo_manutenção">Tipo de manutenção</label>
+                    <input type="text" name="tipo_manutenção" id="tipo_manutenção">
+                </div>
+    
+                <div>
+                    <label for="centro_custo">Centro de custo</label>
+                    <input type="text" name="centro_custo" id="centro_custo">
+                </div>
+    
+                <div>
+                    <label for="local_aplicacao">Local de aplicação</label>
+                    <input type="text" name="local_aplicacao" id="local_aplicacao">
+                </div>
+    
+                <div>
+                    <label for="setor_responsavel">Setor responsável</label>
+                    <input type="text" name="setor_responsavel" id="setor_responsavel">
+                </div>
+    
+                <div>
+                    <label for="inicio_atividade">Início da atividade</label>
+                    <input type="text" name="inicio_atividade" id="inicio_atividade">
+                </div>
+    
+                <div>
+                    <label for="fim_atividade">Fim da atividade</label>
+                    <input type="text" name="fim_atividade" id="fim_atividade">
+                </div>
+
+                <div>
+                    <label for="colaborador">Colaborador</label>
+                    <input type="text" name="colaborador" id="colaborador">
+                </div>
+
+                <div>
+                    <label for="status">Status</label>
+                    <input type="text" name="status" id="status">
+                </div>
+    
+                <input type="submit" name="filtrar" value="Filtrar">
+            </form>
+
+            <section class="os-historico">
+                <div>
+                    <span>O.S.</span>
+                    <span>Atividade</span>
+                    <span>Local</span>
+                    <span>Período de aplicação</span>
+                    <span>Colaborador</span>
+                    <span>Solicitante</span>
+                </div>
+
+                <div>
+                    <span>0153224</span>
+                    <span><p title="Manutenção no motocultivadoraaaaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaa">Manutenção no motocultivadoraaaaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaa</p></span>
+                    <span>Oficina</span>
+                    <span>28/05/2024 07:20 até 28/05/2024 12:00</span>
+                    <span>Luiz Carlos Batista Oliveira</span>
+                    <span>Valdemir Rocha Lima</span>
+                </div>
+            </section>
+
+        </section>
+    </main>  
+</body>
+</html>

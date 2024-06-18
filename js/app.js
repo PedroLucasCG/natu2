@@ -1,3 +1,10 @@
+
+//solicitar ordem de serviço
+let add = document.getElementsByClassName("colaboradores")[0].getElementsByTagName("span")[0]
+add.addEventListener('keypress', function (e){
+    openWindow()
+})
+
 let colaboradoresInserted = [];
 const updateColaboradoresInserted = function (data) {
     colaboradoresInserted = colaboradoresInserted.filter(item => {
@@ -69,3 +76,5 @@ function addColaborador(colaborador)
 
     colaboradoresInserted.push(data)
 }
+
+//Encontrar ordem de serviço
