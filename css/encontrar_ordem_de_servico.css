@@ -1,3 +1,7 @@
+section form{
+    justify-content: space-between;
+}
+
 section.os-historico{
     margin: 0 .5rem 1rem;
     overflow: auto;
