@@ -6,7 +6,9 @@ section.os-historico{
     margin: 0 .5rem 1rem;
     overflow: auto;
     padding: 0 .5rem;
-    width: 80vw;
+    max-width: 80vw;
+    max-height: 40vw;
+    position: relative;
 }
 
 section.os-historico div{
@@ -44,6 +46,19 @@ section.os-historico div p{
     overflow: hidden;
 }
 
+section.os-historico .pages span{
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    padding: 0;
+    margin: 0 .1rem;
+    aspect-ratio: 1/1;
+    background-color: white;
+}
+
+section.os-historico .pages{
+    background-color: initial;
+}
 /*
 section.os-historico div p::after {
     content: attr(title);  
