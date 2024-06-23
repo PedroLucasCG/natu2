@@ -2,11 +2,15 @@ section form{
     justify-content: space-between;
 }
 
+section{
+    width: 5fr;
+}
+
 section.os-historico{
-    margin: 0 .5rem 1rem;
+    margin: 0 1rem 1rem;
     overflow: auto;
     padding: 0 .5rem;
-    max-width: 80vw;
+    max-width: max-content;
     max-height: 40vw;
     position: relative;
 }
