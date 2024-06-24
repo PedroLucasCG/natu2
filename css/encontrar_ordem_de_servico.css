@@ -11,7 +11,7 @@ section.os-historico{
     overflow: auto;
     padding: 0 .5rem;
     max-width: max-content;
-    max-height: 40vw;
+    min-height: 30vw;
     position: relative;
 }
 
@@ -58,6 +58,7 @@ section.os-historico .pages span{
     margin: 0 .1rem;
     aspect-ratio: 1/1;
     background-color: white;
+    cursor: pointer;
 }
 
 section.os-historico .pages{
