@@ -6,7 +6,7 @@ const osTemp = document.getElementsByTagName("template")[0].content.childNodes[1
 
 function loadEntries(pageIndex = 1) {
     //Quantidade de itens exibidos por páginas
-    const qtdItens = 1
+    const qtdItens = 5
 
     const items = osContainer.querySelectorAll("div[name='entry']")
     for (e in Array.from(items))
@@ -18,8 +18,12 @@ function loadEntries(pageIndex = 1) {
             //constrói os índices de navegação das páginas
             makeIndexes(data, qtdItens, pageIndex)
 
-           // const currentIndex = pageIndexContainer.querySelector('span[type="index"]')
-           // console.log(currentIndex)
+            const currentIndexes = pageIndexContainer.querySelectorAll('span[type="index"]')
+            for (e in Array.from(currentIndexes)){
+                if(currentIndexes[e].firstChild.data == pageIndex)
+                    currentIndexes[e].classList.add("current")
+            }
+            //console.log(currentIndex)
 
             //constrói os elementos HTML das O.S.
             for (entry in data) {

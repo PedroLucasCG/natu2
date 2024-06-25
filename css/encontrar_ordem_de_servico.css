@@ -61,6 +61,10 @@ section.os-historico .pages span{
     cursor: pointer;
 }
 
+section.os-historico .pages .current {
+    background-color: rgb(241, 241, 241);
+}
+
 section.os-historico .pages{
     background-color: initial;
 }
