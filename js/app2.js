@@ -69,7 +69,7 @@ function makeIndexes(data, qtdItens, pageIndex){
 
     //Caso o número de index for menor ou igual ao range é calculado um range fixo indenpendente do especificado acima
     if (numberOfIndexes <= range)
-        range = numberOfIndexes-1
+        range = numberOfIndexes - 1
     
     /*
     *Sequência de condicionais que lidam com diferetes casos
@@ -107,7 +107,7 @@ function makeIndexes(data, qtdItens, pageIndex){
         template.appendChild(item)
     }
 
-    //navegação de volta para o primeiro item
+    //Navegação para o primeiro item
     const goBackToFirst = indexTemp.children[0].cloneNode()
     goBackToFirst.innerHTML = "<span> << </span>"
     goBackToFirst.addEventListener ('click', function (e) {
@@ -115,7 +115,7 @@ function makeIndexes(data, qtdItens, pageIndex){
     })
     template.insertBefore(goBackToFirst, template.firstChild)
 
-    //navegação para o último item
+    //Navegação para o último item
     const goToTheLast = indexTemp.children[0].cloneNode()
     goToTheLast.innerHTML = "<span> >> </span>"
     goToTheLast.addEventListener ('click', function (e) {
