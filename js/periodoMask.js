@@ -37,19 +37,49 @@ const formatPeriodoString = function (e, input, isDateTime) {
     }
 }
 
+const isValid = function (char, input) {
+    input = Array.from(input).filter((char) => {
+        return char != "/"
+    }).join("");
+
+    let length = input.length
+    char = Number.parseInt(char)
+
+    switch (length) {
+        case 1:
+            if (char > 3) return false
+            break
+
+        case 3:
+            if (char > 1) return false
+            break
+
+        case 4:
+            if (Number.parseInt(input.slice(2,4)) > 12) return false;
+            break;
+
+        case 10:
+            if (char > 2) return false
+            break;
+
+        case 12:
+            if (char > 5) return false
+            break;
+    }
+    return true
+}
+
 const maskInput = function (e) {
     let input = e.target.value
-
-    //deletar caractere da transição da parte do campo de data para hora
-    if (input.length == 10 && e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward"){
-        e.target.value = input.slice(0, input.length - 1)
-    }
 
     if (
         input.length > 16 //número máximo de caracteres no campo de input (caracteres especiais inclusos)
         || isNaN(input[input.length - 1]) //o último caracteres digitado não é um número
-        && input.length > 0 // há algo escrito no campo de input (completa a última condição)
+            && input.length > 0
         && !(e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward") //garante que nenhum ação é realizada quando um caractere é apagado
+            || (input.length == 10 && e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward") // Trasição de data para hora no momento de deletar o espaço 
+        || !isValid(input[input.length - 1], input)
+        || isNaN(input[input.length - 1])
     ) {
         e.target.value = input.slice(0, input.length - 1)
     } else {
