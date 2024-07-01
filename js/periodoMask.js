@@ -1,49 +1,15 @@
-const input = document.querySelectorAll('input[data-type="periodoMask"]')
+const input = document.querySelectorAll('input[mask-type="periodoMask"]')
 var resultStr = ""
+var rawInput
 
-const formatPeriodoString = function (e, input, isDateTime) {
-    let charOffset = 2
-    let char
-    let re
-
-    if (isDateTime) {
-        re = /([0-9]{2})?([0-9]{2})?/
-        char = ":"
-        charOffset = 1
-    } else {
-        re = /([0-9]{2})?([0-9]{2})?([0-9]{4})?/
-        char = "/"
-        resultStr = ""
-    }
-
-    //Separação dos componentes importantes da string
-    let result = input.split(re)
-    result = result.filter((item) => {
-        return item
-    })
-
-    //Formatação da string para apresentação
-    if (!(e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward")) {
-        if (isDateTime) resultStr += " "
-
-        for (i in result) {
-            if (i < charOffset)
-                resultStr += result[i] + char
-            else
-                resultStr += result[i]
-
-        }
-        e.target.value = resultStr
-    }
-}
-
-const isValid = function (char, input) {
-    input = Array.from(input).filter((char) => {
-        return char != "/"
+const isValid = function (input, caret) {
+    input = Array.from(input.slice(0, caret+1)).filter((char) => {
+        return char != "/" && char != "_"
     }).join("");
 
-    let length = input.length
-    char = Number.parseInt(char)
+    const length = input.length
+    const char = Number.parseInt(input[caret])
+
 
     switch (length) {
         case 1:
@@ -71,45 +37,49 @@ const isValid = function (char, input) {
 
 const maskInput = function (e) {
     let input = e.target.value
+    let caret = this.selectionStart - 1
+    const mask = "__/__/__ __:__"
+    //console.log(!isValid(input[caret], caret))
 
     if (
         input.length > 16 //número máximo de caracteres no campo de input (caracteres especiais inclusos)
-        || isNaN(input[input.length - 1]) //o último caracteres digitado não é um número
+        || isNaN(input[caret]) //o último caracteres digitado não é um número
             && input.length > 0
         && !(e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward") //garante que nenhum ação é realizada quando um caractere é apagado
             || (input.length == 10 && e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward") // Trasição de data para hora no momento de deletar o espaço 
-        || !isValid(input[input.length - 1], input)
-        || isNaN(input[input.length - 1])
+        || !isValid(input, caret)
+        || isNaN(input[caret])
     ) {
-        e.target.value = input.slice(0, input.length - 1)
-    } else {
-        //11 == 8*chars + 2*"/" + " "
-        let isDateTime = false
-        if (input.length > 11) {
-            input = input.split(" ")
-            resultStr = input[0]
-            input = input[1]
-            isDateTime = true
-
-            //Filtro de input para hora
-            input = Array.from(input).filter((char) => {
-                return char != ":"
-            }).join("")
-
-        } else {
-
-            //Filtro de input para data
-            input = Array.from(input).filter((char) => {
-                return char != "/"
-            }).join("")
-
-            //Adição de divisor entre data e hora
-            if (input.length == 8) {
-                input += " "
-            }
+        if (caret != input.length - 1 && caret > 1) e.target.value = input.slice(0, caret)+input.slice(caret + 1, input.length)
+        else if (caret == -1) {
+            e.target.value = input.slice(caret + 1, input.length)
+            caret+=1
         }
+        else e.target.value = input.slice(0, caret)
+        console.log(caret)
+        
+        this.selectionStart = caret
+        this.selectionEnd = caret
 
-        formatPeriodoString(e, input, isDateTime)
+    } else {
+        //Filtro de input
+        input = Array.from(input).filter((char) => {
+            return !isNaN(char) && char != " " 
+        }).join("")
+        
+        resultStr = ""
+        let c = 0
+        console.log(input)
+        for (char in mask ){
+            if (input[c] && mask[char] == "_"){
+                resultStr += input[c]
+                c++
+            }
+            else resultStr += mask[char]
+        }
+        console.log(resultStr)
+        rawInput = input
+        e.target.value = resultStr
     }
 }
 
