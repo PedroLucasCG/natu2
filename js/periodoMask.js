@@ -1,6 +1,6 @@
 const input = document.querySelectorAll('input[mask-type="periodoMask"]')
 var resultStr = ""
-var rawInput
+var previousValue = ""
 
 const isValid = function (input, caret) {
     input = Array.from(input.slice(0, caret+1)).filter((char) => {
@@ -35,52 +35,131 @@ const isValid = function (input, caret) {
     return true
 }
 
+const dateTimeMap = function (group, groupMask) {
+    let field = Array.from(group)
+    let removeNext = false
+
+    for (char in field) {
+        let charCounter = 0
+        field.forEach((char) => {
+            if (char) charCounter++
+        })
+
+        if (
+            !isNaN(field[char])
+            && !removeNext
+        ) {
+            removeNext = true
+        }
+
+        if (
+            field[char] == "_"
+            && removeNext
+        ) {
+            field[char] = ""
+            removeNext = false
+        }
+
+    }
+    field = field.filter((char) => { return char != "" })
+    field = field.slice(0, groupMask.length)
+    
+    return field
+}
+
 const maskInput = function (e) {
     let input = e.target.value
-    let caret = this.selectionStart - 1
-    const mask = "__/__/__ __:__"
-    //console.log(!isValid(input[caret], caret))
+    let caret = e.target.selectionStart
+    let deletedItemIndex = null
+    const mask = "__/__/____ __:__"
+    e.target.value = mask
+    
+    if (!input) return
+
+    if (e.inputType == "deleteContentBackward" && mask[caret] != "_" && isNaN(input[caret])) {
+        resultStr = ""
+        input = Array.from(input).splice(0, caret - 1)
+
+        for (char in mask){
+            if (mask[char] == "_"){
+                if (input[char]){
+                    resultStr += input[char]
+                }
+                else
+                    resultStr += mask[char]
+            }
+            else{
+                resultStr += mask[char]
+            }
+                
+        }
+        input = resultStr
+        console.log(resultStr)
+    } else if (e.inputType == "deleteContentBackward") {
+        deletedItemIndex = caret
+    }
+
+    let [dateMask, timeMask] = mask.split(" ")
+    dateMask = dateMask.split("/")
+    timeMask = timeMask.split(":")
+
+    let [date, time] = input.split(" ")
+    date = date.split("/")
+    time = time.split(":")
+
+    for (part in dateMask){
+        date[part] = dateTimeMap(date[part], dateMask[part])
+    }
+
+    for (part in timeMask){
+        time[part] = dateTimeMap(time[part], timeMask[part])
+    }
+
+    let values = []
+    let dateTime = date.concat(time)
+    dateTime.forEach((row) => {
+        row.forEach(item => values.push(item))
+    })
+    
+    //Filtro de input
+    input = Array.from(input).filter((char) => {
+        return !isNaN(char) && char != " " 
+    }).join("")
 
     if (
-        input.length > 16 //número máximo de caracteres no campo de input (caracteres especiais inclusos)
-        || isNaN(input[caret]) //o último caracteres digitado não é um número
-            && input.length > 0
-        && !(e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward") //garante que nenhum ação é realizada quando um caractere é apagado
-            || (input.length == 10 && e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward") // Trasição de data para hora no momento de deletar o espaço 
-        || !isValid(input, caret)
-        || isNaN(input[caret])
-    ) {
-        if (caret != input.length - 1 && caret > 1) e.target.value = input.slice(0, caret)+input.slice(caret + 1, input.length)
-        else if (caret == -1) {
-            e.target.value = input.slice(caret + 1, input.length)
-            caret+=1
-        }
-        else e.target.value = input.slice(0, caret)
-        console.log(caret)
-        
-        this.selectionStart = caret
-        this.selectionEnd = caret
+        input.length > 12 //número máximo de caracteres no campo de input (caracteres especiais inclusos)
+        || !isValid(input, e.target.selectionStart)
+    ){
 
-    } else {
-        //Filtro de input
-        input = Array.from(input).filter((char) => {
-            return !isNaN(char) && char != " " 
-        }).join("")
-        
-        resultStr = ""
-        let c = 0
-        console.log(input)
-        for (char in mask ){
-            if (input[c] && mask[char] == "_"){
-                resultStr += input[c]
-                c++
-            }
-            else resultStr += mask[char]
-        }
-        console.log(resultStr)
-        rawInput = input
-        e.target.value = resultStr
     }
+    
+    resultStr = ""
+    let c = 0
+    for (char in mask ){
+        if (mask[char] == "_"){
+            if (deletedItemIndex == char) {
+                resultStr += "_"
+            }
+            else if (values[c]){
+                resultStr += values[c]
+                c++
+            } else {
+                resultStr += mask[char]
+            }
+        }
+        else {
+            resultStr += mask[char]
+        }
+    }
+
+    caret = values.findIndex(char => char == "_")
+    while (resultStr[caret] != "_" && input.length < 12)
+        caret++
+
+    e.target.value = resultStr
+    previousValue = resultStr
+    e.target.selectionStart = caret
+    e.target.selectionEnd = caret
 }
 
 input.forEach((e) => {
