@@ -1,34 +1,36 @@
 const input = document.querySelectorAll('input[mask-type="periodoMask"]')
 const mask = "__/__/____ __:__"
 var resultStr = ""
+var previousString = mask
 
 const isValid = function (input, caret) {
-    input = Array.from(input.slice(0, caret + 1)).filter((char) => {
-        return char != "/" && char != "_"
-    }).join("");
+    input = Array.from(input.slice(0, caret--))
 
     const length = input.length
     const char = Number.parseInt(input[caret])
-
 
     switch (length) {
         case 1:
             if (char > 3) return false
             break
 
-        case 3:
+        case 4:
             if (char > 1) return false
             break
 
-        case 4:
-            if (Number.parseInt(input.slice(2, 4)) > 12) return false;
-            break;
-
-        case 10:
-            if (char > 2) return false
+        case 5:
+            if (Number.parseInt(input.slice(3, 5).join("")) > 12) return false;
             break;
 
         case 12:
+            if (char > 2) return false
+            break;
+
+        case 13:
+            if (Number.parseInt(input.slice(11, 13).join("")) > 23) return false;
+            break;
+
+        case 15:
             if (char > 5) return false
             break;
     }
@@ -74,9 +76,14 @@ const maskInput = function (e) {
     let deletedItemIndex = null
     e.target.value = mask
 
-    if (!input) return
-
-    if (e.inputType == "deleteContentBackward" && mask[caret] != "_" && isNaN(input[caret])) {
+    if (!input || !isValid(input, caret)){
+        e.target.value = previousString
+        caret--
+        e.target.setSelectionRange(caret, caret)
+        return
+    } 
+    
+    if (e.inputType == "deleteContentBackward" && mask[caret] != "_") {
         resultStr = ""
 
         const backString = Array.from(input).splice(caret, input.length)
@@ -101,7 +108,6 @@ const maskInput = function (e) {
             else {
                 resultStr += mask[char]
             }
-
         }
         input = resultStr
     }
@@ -151,7 +157,6 @@ const maskInput = function (e) {
         }
     }
 
-    //Filtro de input
     input = Array.from(input).filter((char) => {
         return !isNaN(char) && char != " "
     }).join("")
@@ -165,10 +170,9 @@ const maskInput = function (e) {
         caret = resultStr.length
     }
 
-
+    previousString = resultStr
     e.target.value = resultStr
-    e.target.selectionStart = caret
-    e.target.selectionEnd = caret
+    e.target.setSelectionRange(caret, caret)
 }
 
 input.forEach((field) => {
