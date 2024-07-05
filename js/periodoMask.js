@@ -83,6 +83,7 @@ const dateTimeMap = function (group, groupMask) {
 
 //função principal de aplicação da máscara de input
 const maskInput = function (e) {
+    
     let input = e.target.value
     let caret = e.target.selectionStart
     let deletedItemIndex = null
