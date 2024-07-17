@@ -1,0 +1,88 @@
+section form{
+    justify-content: flex-start;
+    align-items:last baseline;
+}
+
+section form :first-child textarea{
+    height: 4rem;
+}
+
+.legend{
+    padding: 1.5rem;
+}
+
+.legend span{
+    display: block;
+}
+
+.legend span::before{
+    content: "";
+    height: .8rem;
+    display: inline-block;
+    aspect-ratio: 4/1;
+    margin-right: .5rem;
+}
+
+.legend :nth-child(1)::before,
+.pendente{
+    background-color: var(--red);
+}
+
+.legend :nth-child(2)::before,
+.pausada{
+    background-color: var(--orange);
+}
+
+.legend :nth-child(3)::before,
+.fechada{
+    background-color: var(--green);
+}
+
+section.os {
+    margin: 0 1.5rem;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 2rem;
+    overflow: auto;
+}
+
+section.os > div {
+    width: 100%;
+}
+
+.header {
+    font-weight: bold;
+    display: flex;
+}
+
+.header :nth-child(1){
+    border-right: .2rem solid;
+    padding-right: .5rem;
+    margin-right: .5rem;
+}
+
+.header span{
+    display: block;
+    align-content: center;
+}
+
+.body {
+    height: 30rem;
+    scrollbar-width: thin;
+    margin-top: .3rem;
+    overflow: auto;
+}
+
+.body ol{
+    list-style: none;
+}
+
+.body li{
+    padding: .3rem;
+    border-radius: .5rem;
+}
+
+.body li:not(:last-child){
+    margin-bottom: .3rem;
+}

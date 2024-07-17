@@ -15,7 +15,11 @@
 <body onload="loadEntries()">
     <template>
         <div name="entry">
-            <span>000000</span>
+            <span>
+                <span onclick="deleteOS(this)"> <img src="/img/icons/delete.svg" alt="delete icon"> </span> 
+                <span onclick="editOS(this)"> <img src="/img/icons/edit.svg" alt="edit icon"> </span> 
+                <span onclick="copyOS(this)"> <img src="/img/icons/copy.svg" alt="copy icon"> </span> 
+                <span>000000</span> </span>
             <span>
                 <p title="Atividade">atividde</p>
             </span>
@@ -34,10 +38,13 @@
 
     <main>
         <aside>
-            <a href="Iniciar_solicitacao_de_servico.html">Solicitar serviço</a>
-            <a href="encontrar_ordem_de_servico.html" current>Gestão de O.S.</a>
-            <a href="administrar_colaboradores.html">Colaboradores</a>
-            <a href="definir_constantes.html">Constantes</a>
+            <div class="links">
+                <a href="Iniciar_solicitacao_de_servico.html">Solicitar serviço</a>
+                <a href="encontrar_ordem_de_servico.html" current>Gestão de O.S.</a>
+                <a href="administrar_colaboradores.html">Colaboradores</a>
+                <a href="definir_constantes.html">Constantes</a>
+            </div>
+            <div><a href="">Solicitações para revisão</a></div>
         </aside>
 
         <section>

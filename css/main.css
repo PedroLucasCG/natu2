@@ -4,6 +4,8 @@
     --letter-color: #5e5e5e;
     --green: #27AE45;
     --red: #FF7171;
+    --blue: #8898ED;
+    --orange: #fc9219;
     --font-size-title: 1.5rem;
 }
 
@@ -82,12 +84,15 @@ section h1{
     background-color: var(--bg-color-item);
 }
 
-aside{
+div.links{
     background-color: var(--bg-color);
-    height: fit-content;
-    text-align: center;
-    border-radius: .5rem;
     padding: .5rem 0;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+aside{
+    height: fit-content;
     grid-column-start: 1;
     grid-column-end: 2;
 }
@@ -119,7 +124,8 @@ aside a:not(:last-child){
 section form{
     margin-top: 4rem;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
+    gap: 1%;
     flex-wrap: wrap;
     padding: 0 1rem 2rem;
 }
