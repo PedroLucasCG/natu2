@@ -100,6 +100,10 @@ section.os-historico div[name="entry"] span:has(>img){
     width: fit-content;
 }
 
+section.os-historico div[name="entry"] :first-child :last-child{
+    width: 5rem;
+}
+
 /*
 section.os-historico div p::after {
     content: attr(title);  
